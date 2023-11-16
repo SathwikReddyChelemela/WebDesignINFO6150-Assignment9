@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+## CSR Tech Review Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+This project consists of a React front-end application for user authentication and a Node.js back-end server. The React app communicates with the server to authenticate users. It includes a login page where users can enter their email and password to authenticate.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Prerequisites
+Before you begin, make sure you have the following software installed on your machine:
 
-### `npm start`
+Node.js: JavaScript runtime for executing code on the server side.
+npm: Node Package Manager for managing project dependencies.
+MongoDB: A NoSQL database used for storing user data.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Database
+Ensure that MongoDB is running, and a database named Assignment8DB is available for the application. The backend server will connect to this database to store and retrieve user data.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Routes and Components
+/login: Login page for user authentication.
+/home: Home page.
+/about: About page.
+/job: Job page.
+/contact: Contact page.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project Structure
+App.js: Main component defining the routes and layout.
+Components:
+Home, Layout, About, Contact, Job, ChildHome, Login
+CSS:
+App.css for styling.
+Bootstrap.min.css for Bootstrap styles.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## BACKEND 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Technologies Used
+Node.js: A JavaScript runtime used for building scalable network applications.
+Express.js: A web application framework for Node.js used to build the RESTful API.
+MongoDB: A NoSQL database used to store user data.
+Mongoose: An ODM (Object Data Modeling) library for MongoDB and Node.js.
+bcrypt: A library used for hashing passwords securely.
+cors: Middleware for enabling Cross-Origin Resource Sharing.
+http: A module to create an HTTP server.
+body-parser: Middleware for parsing incoming request bodies.
+Project Structure
+The project is organized into the following main components:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Controllers: Located in the controllers directory, it contains the UserController responsible for handling user-related operations such as user creation, authentication, editing, deletion, and retrieval.
 
-### `npm run eject`
+Routes: The routing for different endpoints is defined in the routers/router.js file. It maps the API endpoints to the corresponding controller methods.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Backend API Routes
+User Authentication:
+Endpoint: POST /user/authenticate
+Payload: JSON with email and password
+Response:
+Success: Status 200 with { message: "User authenticated successfully" }
+Failure: Status 401 with { message: "User not found" } or { message: "Incorrect password" }
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Models: The model/users.model.js file defines the structure of the user data stored in MongoDB. It uses Mongoose for schema definition.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Services: The service/service.js file contains the UserService, which encapsulates the business logic related to user operations.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Server Setup: The app.js file sets up the Express application, connects to the MongoDB database, and defines routes. The server is created using the http module.
 
-## Learn More
+## Frontend
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Technologies Used
+React: A JavaScript library for building user interfaces.
+React Router: A library for handling navigation in a React application.
+Bootstrap: A popular CSS framework for building responsive and stylish user interfaces.
+axios: A promise-based HTTP client for making requests to the backend API.
+Project Structure
+The project is organized into the following main components:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Components: Located in the Component directory, it contains various components such as Home, Layout, About, Contact, Job, ChildHome, and Login. Each component corresponds to a different page or section of the application.
 
-### Code Splitting
+App.js: The main entry point for the React application. It sets up the React Router for handling navigation and defines the routes for different components.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Login Component: The Login component handles user authentication. It includes a form with email and password fields, and upon submission, it sends a request to the backend API for authentication.
 
-### Analyzing the Bundle Size
+Usage:
+Login Page:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Navigate to http://localhost:3000/login to access the login page. Enter valid credentials, and upon successful authentication, you will be redirected to the home page.
 
-### Making a Progressive Web App
+Home Page:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Navigate to http://localhost:3000/home to access the home page.
 
-### Advanced Configuration
+Navigation:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The application uses React Router for navigation. You can use the navigation links in the Layout component or the URLs to switch between different pages.
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
